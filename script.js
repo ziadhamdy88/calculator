@@ -16,6 +16,13 @@ class Calculator {
         this.currentOperand = possibleOperand;
     }
 
+    changeSign(){
+        if(this.currentOperand === ''){
+            return;
+        }
+        this.currentOperand *= -1;
+    }
+
     selectOperation(operation) {
         if(this.currentOperand === ''){
             return;
@@ -146,5 +153,10 @@ clearButton.addEventListener('click', button => {
 
 deleteButton.addEventListener('click', button => {
     calculator.delete();
+    calculator.updateDisplay();
+});
+
+signButton.addEventListener('click', button => {
+    calculator.changeSign();
     calculator.updateDisplay();
 });
